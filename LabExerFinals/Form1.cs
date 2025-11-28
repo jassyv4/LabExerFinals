@@ -15,9 +15,26 @@ namespace LabExerFinals
         public FrmClubRegistration()
         {
             InitializeComponent();
+            ClubRegistrationQuery clubRegistrationQuery = new ClubRegistrationQuery();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private ClubRegistrationQuery clubRegistrationQuery;
+        private int ID, Age, count;
+        private string FirstName, MiddleName, LastName, Gender, Program;
+        private long StudentID;
+
+        private void FrmClubRegistration_Load(object sender, EventArgs e)
+        {
+            RefreshListOfClubMembers();
+        }
+
+        public  void RefreshListOfClubMembers()
+        {
+            clubRegistrationQuery.DisplayList();
+            dataGridView1.DataSource = clubRegistrationQuery.bindingSource;
+        }
+
+        public void RegistrationID()
         {
 
         }
