@@ -15,7 +15,7 @@ namespace LabExerFinals
         public FrmClubRegistration()
         {
             InitializeComponent();
-            ClubRegistrationQuery clubRegistrationQuery = new ClubRegistrationQuery();
+            clubRegistrationQuery = new ClubRegistrationQuery();
         }
 
         private ClubRegistrationQuery clubRegistrationQuery;
@@ -34,9 +34,34 @@ namespace LabExerFinals
             dataGridView1.DataSource = clubRegistrationQuery.bindingSource;
         }
 
-        public void RegistrationID()
+        public int RegistrationID()
         {
+            count = count + 1;  
+            return count;
+        }
 
+        private void btnReg_Click(object sender, EventArgs e)
+        {
+            ID = RegistrationID();
+            StudentID = ID;
+
+            clubRegistrationQuery.RegisterStudent(
+                ID,
+                StudentID,
+                txtFirstName.Text,
+                txtMiddleName.Text,
+                txtLastName.Text,
+                int.Parse(txtAge.Text),
+                cmbGender.Text,
+                cmbProgram.Text
+            );
+
+            RefreshListOfClubMembers();
+            MessageBox.Show("Student registered successfully!");
+        }
+        private void btnRef_Click(object sender, EventArgs e)
+        {
+            RefreshListOfClubMembers();
         }
     }
 }
