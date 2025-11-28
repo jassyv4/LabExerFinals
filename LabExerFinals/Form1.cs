@@ -21,6 +21,17 @@ namespace LabExerFinals
         private ClubRegistrationQuery clubRegistrationQuery;
         private int ID, Age, count;
         private string FirstName, MiddleName, LastName, Gender, Program;
+
+        private void btnUpd_Click(object sender, EventArgs e)
+        {
+            using (var frm = new FrmUpdateMember())
+            {
+                frm.ShowDialog();
+            }
+
+            RefreshListOfClubMembers();
+        }
+
         private long StudentID;
 
         private void FrmClubRegistration_Load(object sender, EventArgs e)
@@ -42,8 +53,8 @@ namespace LabExerFinals
 
         private void btnReg_Click(object sender, EventArgs e)
         {
+            StudentID = long.Parse(txtStudentID.Text);
             ID = RegistrationID();
-            StudentID = ID;
 
             clubRegistrationQuery.RegisterStudent(
                 ID,
