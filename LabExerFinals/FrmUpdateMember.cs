@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace LabExerFinals
 {
-    public partial class FrmClubRegistration : Form
+    public partial class FrmUpdateMember : Form
     {
-        public FrmClubRegistration()
+        public FrmUpdateMember()
         {
             InitializeComponent();
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void FrmUpdateMember_Load(object sender, EventArgs e)
         {
 
         }
